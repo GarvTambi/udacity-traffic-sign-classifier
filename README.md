@@ -71,7 +71,7 @@ Therefore, My preprocessing phase normalizes images from [0, 255] to
 
 #### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
-The train, valid and test data are prepreocessed in cecll 9. I use
+The train, valid and test data are prepreocessed in cell 9. I use
 cross validation to split training data. The code to split the data
 is in function `train` (see cell 15).
 
@@ -118,28 +118,28 @@ The first model is adapted from LeNet architecture. Since LeNet
 architecture has a great performance on recognizing handwritings, I
 think it would also work on classifying traffic signs.
 
-I used the same parameter given in LeNet lab. It's training accuracy
-initially was around 90%, so I think the filter depth is not large
+I used the same parameter given in LeNet lab. Its training accuracy
+initially was around 90%, so I thought the filter depth was not large
 enough to capture images' shapes and contents. Previously the filter
 depth was 6 for the first layer and 12 for the second. I increased
 to 12 and 25. The accuracy increased to around 93%.
 
 I then added a drop out layer, which is supposed to used to prevent
-overfitting, but I found a drop out layer actually increased the
+overfitting, but I found a drop out layer could sometimes increase the
 accuracy to 95%.
 
 I also tuned `epoch`, `batch_size`, and `rate` parameters, and settled at
 
-- epoch 10
-- batch_size 64
-- learning rate 0.001
+- `epoch` 10
+- `batch_size` 64
+- `learning rate` 0.001
 
 I have my explainations of the effect of the drop out layer after I've
 seen some of the training data. Some images are too dark to see the
 sign, so it seems that these images act as noises in the training data
 and drop out layer can reduce the negative effects on learning.
 
-The eventually accuracy in validation set is around 0.95.
+The final accuracy in validation set is around 0.95.
 
 ### Test a Model on New Images
 
@@ -148,9 +148,9 @@ The eventually accuracy in validation set is around 0.95.
 The chosen signs are visualized in cell 20.
 
 I want to see how the classifier performs on similar signs. The
-General Caution and Traffic signals: they both look lke a vertical bar
-(see the visualization) when grayscaled. And Pedestrains and Child
-crossing Pedestrains looks similar in low resolution.
+General Caution and Traffic signals: they both look like a vertical bar
+(see the visualization) when grayscaled. And pedestrains and child
+crossing look similar in low resolution.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -159,7 +159,7 @@ result is explained and virtualized in detail in cell 28.
 
 The accuracy is 63.6%. By looking at the virtualized result, I think
 the low accuracy is caused by lack of good training data (or this can
-be addressed by other image preprocessing phase). I explain this in
+be addressed by another image preprocessing phase). I explain this in
 next section.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
@@ -174,4 +174,4 @@ enough. This is actually consistent to my various
 experiments. Sometimes the prediction accuracy can be as good as
 90%. And I think to get the consistent correctness, I need more good
 data, that is to prepcess the image to lightening the dark one,
-and to correct more images.
+and to collect more images.
