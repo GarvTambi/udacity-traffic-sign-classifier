@@ -11,17 +11,6 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
 ## Rubric Points
 
 ### Submission Files
@@ -29,6 +18,7 @@ The goals / steps of this project are the following:
 This project includes
 
 - The notebook `Traffic_Sign_Classifier.ipynb` (and `signames.csv` for completeness)
+- `report.html`, the exported HTML version of the python notebook
 - A directory `mydata` containing images found on the web
 - `README.md`, which you're reading
 
@@ -157,10 +147,10 @@ crossing look similar in low resolution.
 The code for making predictions on my final model is in cell 22. The
 result is explained and virtualized in detail in cell 28.
 
-The accuracy is 63.6%. By looking at the virtualized result, I think
-the low accuracy is caused by lack of good training data (or this can
-be addressed by another image preprocessing phase). I explain this in
-next section.
+The accuracy on the new traffic signs is 63.6%, while it was 93% on
+the test set. This is a sign of underfitting. By looking at the
+virtualized result, I think this can be addressed by using more image
+preprocessing techniques on the training set.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -168,10 +158,10 @@ In the submitted version, the model can correctly guess 7 out of 11
 signs. The accuracy is 63.6%. However, it can sometimes predict
 correctly 10 out of 11 images.
 
-By looking at the virtualized data. The prediction of pedestrains,
-children crossing, and speed limit 60km/h is actually close
+By looking at the virtualized data. The predictions of pedestrains,
+children crossing, and speed limit 60km/h are actually close
 enough. This is actually consistent to my various
 experiments. Sometimes the prediction accuracy can be as good as
-90%. And I think to get the consistent correctness, I need more good
-data, that is to prepcess the image to lightening the dark one,
-and to collect more images.
+90%. I think to get the consistent correctness, I need more good
+data. One simple thing to do might be to preprocess the image by
+brightening dark ones.
